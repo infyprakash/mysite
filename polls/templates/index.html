@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+</head>
+<body>
+    <h1>My first web page</h1>
+    {% for d in data %}
+
+        {% for ques,ch in d.items %}
+            <p style="font-weight: bold;color: blue;">{{ques.id}} . &nbsp; {{ques.question_text}}</p>
+            <ul>
+                {% for choice in ch %}
+                <li style="color: red;">{{choice.choice_text}} - {{choice.votes}}</li>
+            {% endfor %}
+            </ul>
+            <a href="/vote/here/{{ques.id}}">vote here</a>
+        {%endfor %}
+
+    {% endfor %}
+</body>
+</html> 
